@@ -2,7 +2,7 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	"your_project_path/internal/util"
+	"golang-backend-api/internal/util"
 )
 
 func Login(c *gin.Context) {

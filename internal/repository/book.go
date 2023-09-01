@@ -3,7 +3,7 @@ package repository
 import (
 	"errors"
 	"sync"
-	"your_project_path/internal/model"
+	"golang-backend-api/internal/model"
 )
 
 var (
