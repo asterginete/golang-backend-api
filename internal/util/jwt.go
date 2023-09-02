@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	SECRET_KEY = "your_secret_key" // Change this to a more secure key
+	SECRET_KEY = "secret_key" // Change this to a more secure key
 )
 
 func GenerateToken(username string) (string, error) {
