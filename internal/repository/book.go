@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"github.com/your_username/go-gin-api/internal/model"
+	"github.com/asterginete/golang-backend-api/internal/model"
 	"github.com/jinzhu/gorm"
 )
 
