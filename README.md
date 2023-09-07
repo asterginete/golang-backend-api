@@ -1,100 +1,97 @@
-# Go-Gin Book API
+# Go-Gin-API
 
-A simple RESTful API for managing books, built with Go and the Gin framework.
+A comprehensive backend API built with Go and the Gin framework. This application provides CRUD operations for books, user authentication, logging, rate limiting, and more.
 
-## Getting Started
+## Table of Contents
 
-### Prerequisites
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
 
-- Go (Download and install from [here](https://golang.org/dl/))
-- Gin framework (`go get -u github.com/gin-gonic/gin`)
+## Features
 
-### Running the API
+- **User Authentication**: Secure user registration and login using JWT.
+- **CRUD for Books**: Create, read, update, and delete operations for books.
+- **Logging**: Logs user activities and system events.
+- **Rate Limiting**: Prevents abuse by limiting the number of API requests.
+- **Email Utilities**: Send emails for notifications or password resets.
+- **Password Utilities**: Securely hash and verify passwords.
 
-Navigate to the project directory and run:
+## Prerequisites
 
-```bash
-go run main.go
-```
+- Go (version 1.16 or newer)
+- PostgreSQL
+- SMTP server (for email utilities)
 
-The server will start on port 8080.
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/astergginete/golang-backend-api.git
+   cd golang-backend-api
+   ```
+
+2. Install the required Go packages:
+   ```bash
+   go mod download
+   ```
+
+3. Set up your PostgreSQL database and update the connection string in the configuration.
+
+4. Run the database migrations:
+   ```bash
+   # Assuming you have a migration tool set up
+   migration_tool run internal/migrations/
+   ```
+
+5. (Optional) Set up your SMTP server details in the configuration for email utilities.
+
+## Usage
+
+1. Start the server:
+   ```bash
+   go run cmd/server/main.go
+   ```
+
+2. The server will start on the default port (e.g., `8080`). You can access the API at `http://localhost:8080`.
 
 ## API Endpoints
 
-### CRUD Operations
+### User
 
-1. **Create a Book**
-   - **Endpoint**: `/books`
-   - **Method**: `POST`
-   - **Body**:
-     ```json
-     {
-       "title": "Book Title",
-       "author": "Author Name",
-       "genre": "Genre",
-       "publication_date": "YYYY-MM-DD"
-     }
-     ```
+- **Register**: `POST /users/register`
+- **Login**: `POST /users/login`
+- **Get User Profile**: `GET /users/profile`
+- **Update User Profile**: `PUT /users/profile`
+- **Delete User**: `DELETE /users/delete`
 
-2. **List All Books**
-   - **Endpoint**: `/books`
-   - **Method**: `GET`
+### Books
 
-3. **Get a Single Book**
-   - **Endpoint**: `/books/:id`
-   - **Method**: `GET`
+- **List All Books**: `GET /books`
+- **Get Single Book**: `GET /books/:id`
+- **Create Book**: `POST /books`
+- **Update Book**: `PUT /books/:id`
+- **Delete Book**: `DELETE /books/:id`
 
-4. **Update a Book**
-   - **Endpoint**: `/books/:id`
-   - **Method**: `PUT`
-   - **Body**:
-     ```json
-     {
-       "title": "Updated Title",
-       "author": "Updated Author",
-       "genre": "Updated Genre",
-       "publication_date": "Updated YYYY-MM-DD"
-     }
-     ```
+### Logs
 
-5. **Delete a Book**
-   - **Endpoint**: `/books/:id`
-   - **Method**: `DELETE`
+- **Get All Logs**: `GET /logs`
+- **Get Log by ID**: `GET /logs/:id`
 
-### Additional Endpoints
-
-6. **Get Books by Author**
-   - **Endpoint**: `/books/author/:name`
-   - **Method**: `GET`
-
-7. **Search Books by Title or Author**
-   - **Endpoint**: `/books/search/:query`
-   - **Method**: `GET`
-
-8. **Filter Books by Genre**
-   - **Endpoint**: `/books/genre/:genre`
-   - **Method**: `GET`
-
-9. **Sort Books by Publication Date**
-   - **Endpoint**: `/books/sort/date`
-   - **Method**: `GET`
-
-10. **Sort Books by Title**
-    - **Endpoint**: `/books/sort/title`
-    - **Method**: `GET`
-
-11. **Filter Books by Publication Year**
-    - **Endpoint**: `/books/year/:year`
-    - **Method**: `GET`
-
-## Testing
-
-You can test the API using tools like `curl`, Postman, or directly in the browser (for GET requests).
+(Add more endpoints as necessary)
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit your changes.
+4. Push to your fork.
+5. Submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the `LICENSE` file for details.

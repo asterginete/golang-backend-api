@@ -8,8 +8,8 @@ import (
 const (
 	SMTPServer   = "smtp.example.com"
 	SMTPPort     = "587"
-	SMTPUser     = "your_email@example.com"
-	SMTPPassword = "your_email_password"
+	SMTPUser     = "email@example.com"
+	SMTPPassword = "email_password"
 )
 
 // SendEmail sends an email to the specified recipient.
